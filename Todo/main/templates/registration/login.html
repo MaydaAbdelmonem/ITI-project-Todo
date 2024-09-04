@@ -1,0 +1,48 @@
+{% extends "main/components/base.html" %}
+
+
+{% block title%}
+  login
+{% endblock %}
+
+@media (min-width: 1025px) {
+	.h-custom {
+	height: 100vh !important;
+	}
+	}
+
+{% block content%}
+<section class="h-100 h-custom" style="background-color: #ebb7f7;">
+	<div class="container py-5 h-100">
+	  <div class="row d-flex justify-content-center align-items-center h-100">
+		<div class="col-lg-8 col-xl-6">
+		  <div class="card rounded-3">
+			<div class="card-body p-4 p-md-5">
+			  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">LOGIN</h3>
+  
+			  <form method='POST' class="px-md-2 justify-content-center align-items-center">
+  
+			{%csrf_token%}
+			<div class="f justify-content-center align-items-center">
+			  {{form.as_p}}
+			  <br>
+			 </div>
+		
+  
+				<button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Submit</button>
+  
+			  </form>
+  
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+
+
+{% endblock %}
+
+
+

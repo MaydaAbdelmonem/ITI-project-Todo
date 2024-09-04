@@ -1,0 +1,33 @@
+{% extends "main/components/base.html" %}
+
+
+{% block title%}
+ status-todos-page
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content%}
+
+ <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-4">
+        {% for todo in todos %}
+        <div class="col">
+            <div class="card border-warning mb-5">
+                <div class="card-header">{{todo.created_at}}</div>
+                <div class="card-body">
+                    <a href='{% url "detail" todo.id %}'><h5>{{ todo.title }}</h5></a>
+                    <p class="card-text">{{todo.description}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

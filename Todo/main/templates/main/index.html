@@ -1,0 +1,85 @@
+{% extends "main/components/base.html" %}
+
+{% block title %}
+ Index-Page 
+{% endblock %}
+
+
+{% block content %}
+<section class="vh-100   " >
+  <div class="container py-5 h-100">
+    <div class="row justify-content-around h-100">
+      <!-- Categories Table -->
+      <div class="col-xl-5 mb-4">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-header text-center">
+            <h6>Categories</h6>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for cat in categories %}
+                <tr>
+                  <td><a href="#">{{ cat.name }}</a></td>
+                  <td>{{ cat.description }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <div class="contianer">
+              <a href="{% url 'createcategory' %}" class="btn btn-outline-info " style="width: 140px; margin: 0px 35%;">Create Category</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Todo List Table -->
+      <div class="col-xl-4 mb-4">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <div class="card-header text-center ">
+              <h6>Todo List</h6>
+            </div>
+           
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for task in tasks %}
+                <tr>
+                  <td><a href='{% url "detail" task.id %}'>{{ task.title }}</a></td>
+                 
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <input class="form-check-input me-2" type="checkbox" aria-label="{{ task.title }}" />
+                      <a href="#" class="text-primary" data-mdb-tooltip-init title="Remove item">
+                        <i class="fas fa-times"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <div>
+              <a href="{% url 'createtodo' %}" class="btn btn-outline-success  " style="width: 140px; margin: 0px 25%;">Create new Task</a>
+            </div>
+          </div>
+        </div>
+	</div>  
+</div>
+  </div>
+</section>
+
+
+{% endblock %}

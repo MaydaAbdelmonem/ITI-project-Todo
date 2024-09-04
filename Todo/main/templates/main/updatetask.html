@@ -1,0 +1,57 @@
+{% extends "main/components/base.html" %} 
+
+{% block title %}
+    Update Task
+
+{% endblock %}
+
+
+
+
+{% block content%}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="form-table">
+                <div class="form-container">
+                    <div class="form-header text-center">
+                        <h2>Todo</h2>
+                    </div>
+					<br>
+                    <form method="post">
+                        {% csrf_token %}
+						
+                        {{ form }}             
+						<br>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn sl btn-outline-dark">Update Task</button>
+							<a href="{% url 'home' %}" class="btn sl btn-outline-dark">back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+<div class=" container  m-auto">
+
+    <h3> Create new Todo</h3>
+    
+    <form method="POST"  >
+    {% csrf_token %}  
+   
+    {{ form }}
+
+    <div class="d-flex justify-content-around mt-3 align-items-center">
+        <input type="submit" class="btn btn-primary" value="Update  Task">
+        <a href="{% url 'home' %}" class="btn btn-dark"> Back</a>
+    </div>
+    </form>
+    
+</div>
+
+{% endblock  %}
